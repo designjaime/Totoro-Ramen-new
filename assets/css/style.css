@@ -1,19 +1,12 @@
-/* ------------------------------------------------------------------
-Project: Vortex
-Version: 1.0.4
------------------------------------------------------------------- */
 
-@import url("http://fonts.googleapis.com/css?family=Dosis");
-@import url("http://fonts.googleapis.com/css?family=Libre+Baskerville:400italic");
+
+@import url("https://fonts.googleapis.com/css?family=Neucha");
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700");
-
-/* ------------------------------------------------------------------
-General Styles
------------------------------------------------------------------- */
+/* General Styles */
 
 body {
 	background: #fff;
-	font: 400 14px/1.8 "Open Sans", sans-serif;
+	font: 500 16px/1.8 'Neucha', cursive;
 	color: #777;
 	overflow-x: hidden;
 	-ms-overflow-style: scrollbar;
@@ -1022,7 +1015,7 @@ Overlays
 }
 
 .bg-dark-60:before {
-	background: rgba(34, 34, 34, 0.6);
+	background: url(../images/hero.jpg);
 	content: "";
 	left: 0;
 	top: 0;
