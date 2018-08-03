@@ -6,7 +6,7 @@
 
 body {
 	background: #fff;
-	font: 500 16px/1.8 'Neucha', cursive;
+	font: 500 16px/1.8 'Neucha';
 	color: #777;
 	overflow-x: hidden;
 	-ms-overflow-style: scrollbar;
@@ -167,9 +167,8 @@ blockquote.serif-quote {
 }
 
 .font-alt {
-	font-family: "Dosis", sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 3px;
+	font-family: 'Neucha';
+	letter-spacing: 1px;
 }
 
 .font-serif {
@@ -992,6 +991,8 @@ Overlays
 .bg-dark-60 h1, .bg-dark-60 h2, .bg-dark-60 h3, .bg-dark-60 h4, .bg-dark-60 h5, .bg-dark-60 h6,
 .bg-dark-90 h1, .bg-dark-90 h2, .bg-dark-90 h3, .bg-dark-90 h4, .bg-dark-90 h5, .bg-dark-90 h6 {
 	color: #fff;
+	
+
 }
 
 .bg-film:before,
@@ -1075,7 +1076,7 @@ Navigation
 	padding-bottom: 5px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	font-size: 10px;
+	font-size: 16px;
 }
 
 .navbar-custom .navbar-brand {
@@ -1099,6 +1100,7 @@ Navigation
 .navbar-custom .dropdown-menu > li > a:hover {
 	background: none;
 	color: rgba(255, 255, 255, 0.7);
+	border-bottom: 2px solid red;
 }
 
 .show-overlay .icon-bar {
@@ -1262,15 +1264,18 @@ Navigation
 }
 
 #nav > li > a {
-	font-family: "Dosis", sans-serif;
+	font-family: 'Neucha';
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	font-size: 24px;
 	color: #FDFDFD;
+	
+
 }
 
 #nav li a:hover, #nav li a.active {
 	color: #fff;
+	border-bottom: 2px solid red;
 }
 
 #nav li ul {
@@ -1313,10 +1318,15 @@ Hero
 	display: table-cell;
 	vertical-align: middle;
 	height: 100%;
+	
 }
 
 /* Hero caption sizes*/
-
+mark{
+	color:white;
+	background-color:black;
+	opacity: 0.5;
+}
 .mh-line-size-1,
 .mh-line-size-2,
 .mh-line-size-3,
@@ -2047,6 +2057,26 @@ Reset bootstrap navigation styles for small screens
 	padding-bottom: 15px;
 }
 
+/*new css*/
+.grid-container {
+    max-width: 83.3333333333rem;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.card-deck{
+    margin-bottom: 15px;
+}
+.post{
+    /* background-color: transparent; */
+    background: rgba(7, 6, 6, 0.4);
+}
+.card-body{
+    background: rgba(7, 6, 6, 0.5);
+    /* background-color: rgb(7, 6, 6); */
+    /* opacity: 0.5; */
+    /* border-color:#ffffff; */
+}
 /* -------------------------------------------------------------------
 Responsive Media Querries
 ------------------------------------------------------------------- */
@@ -2067,7 +2097,7 @@ Responsive Media Querries
 	/* Hero captions */
 
 	.mh-line-size-1 {
-		letter-spacing: 40px;
+		letter-spacing: 20px;
 		font-size: 26px;
 	}
 
