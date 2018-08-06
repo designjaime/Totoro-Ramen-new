@@ -19,6 +19,13 @@ img {
   height: auto;
 }
 
+a:hover, a:focus{
+  text-decoration: none;
+}
+
+
+
+
 /* ------------------------------------------------------------------
 Selection
 ------------------------------------------------------------------ */
@@ -356,7 +363,7 @@ Overlays
 }
 
 .bg-dark-60:before {
-  background: url(../images/hero.jpg);
+  background: url(../images/hero.jpg) no-repeat center center fixed; 
   content: "";
   left: 0;
   top: 0;
@@ -681,7 +688,7 @@ Modules
 ------------------------------------------------------------------- */
 
 .wrapper {
-  background: url('../images/bg_wood.jpg');
+  background: url('../images/dark_wood.png');
   overflow: hidden;
   margin: 0 auto;
   width: 100%;

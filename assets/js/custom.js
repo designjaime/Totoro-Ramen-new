@@ -1,4 +1,4 @@
-(function($){
+(function ($) {
 
 	"use strict";
 
@@ -6,37 +6,37 @@
 	 * Preloader
 	/* ---------------------------------------------- */
 
-	$(window).load(function() {
+	$(window).load(function () {
 		$('.loader').fadeOut();
 		$('.page-loader').delay(350).fadeOut('slow');
 	});
 
-	$(document).ready(function() {
+	$(document).ready(function () {
 
 		/* ---------------------------------------------- /*
 		 * Initialization general scripts for all pages
 		/* ---------------------------------------------- */
 
-		var moduleHero      = $('#hero'),
-			overlayMenu     = $('#overlay-menu'),
-			slider          = $('#slides'),
-			navbar          = $('.navbar-custom'),
-			filters         = $('#filters'),
-			worksgrid       = $('#works-grid'),
-			modules         = $('.module-hero, .module, .module-small'),
-			windowWidth     = Math.max($(window).width(), window.innerWidth),
+		var moduleHero = $('#hero'),
+			overlayMenu = $('#overlay-menu'),
+			slider = $('#slides'),
+			navbar = $('.navbar-custom'),
+			filters = $('#filters'),
+			worksgrid = $('#works-grid'),
+			modules = $('.module-hero, .module, .module-small'),
+			windowWidth = Math.max($(window).width(), window.innerWidth),
 			navbatTrans,
 			mobileTest;
 
 		navbarCheck(navbar);
 
-		$(window).resize(function() {
+		$(window).resize(function () {
 			buildModuleHero();
-			windowWidth     = Math.max($(window).width(), window.innerWidth);
+			windowWidth = Math.max($(window).width(), window.innerWidth);
 		});
 
-		$(window).scroll(function() {
-			if(windowWidth > 960) {
+		$(window).scroll(function () {
+			if (windowWidth > 960) {
 				navbarAnimation(navbar, moduleHero);
 			}
 		}).scroll();
@@ -66,7 +66,7 @@
 		 * Setting background of modules
 		/* ---------------------------------------------- */
 
-		modules.each(function() {
+		modules.each(function () {
 			if ($(this).attr('data-background')) {
 				$(this).css('background-image', 'url(' + $(this).attr('data-background') + ')');
 			}
@@ -77,7 +77,7 @@
 		/* ---------------------------------------------- */
 
 		if (mobileTest === true) {
-			$('.module-parallax').css({'background-attachment': 'scroll'});
+			$('.module-parallax').css({ 'background-attachment': 'scroll' });
 		} else {
 			$('#hero.module-parallax').parallax('50%', 0.2);
 		}
@@ -95,14 +95,8 @@
 				}
 			}
 		}
+		$('#hero-title').addClass('animated fadeInLeft');
 
-		/* ---------------------------------------------- /*
-		 * Youtube video background
-		/* ---------------------------------------------- */
-
-		$(function(){
-			$('.video-player').mb_YTPlayer();
-		});
 
 		/* ---------------------------------------------- /*
 		 * Transparent navbar animation
@@ -131,19 +125,19 @@
 		 * Show/Hide overlay menu
 		/* ---------------------------------------------- */
 
-		$('#toggle-menu').on('click', function() {
+		$('#toggle-menu').on('click', function () {
 			showMenu();
 			$('body').addClass('aux-navigation-active');
 			return false;
 		});
 
-		$('#overlay-menu-hide').on('click', function() {
+		$('#overlay-menu-hide').on('click', function () {
 			hideMenu();
 			$('body').removeClass('aux-navigation-active');
 			return false;
 		});
 
-		$(window).keydown(function(e) {
+		$(window).keydown(function (e) {
 			if (overlayMenu.hasClass('active')) {
 				if (e.which === 27) {
 					hideMenu();
@@ -152,7 +146,7 @@
 		});
 
 		function showMenu() {
-			navbar.animate({'opacity': 0, 'top': -80}, {
+			navbar.animate({ 'opacity': 0, 'top': -80 }, {
 				duration: 150,
 				easing: 'easeInOutQuart'
 			});
@@ -161,7 +155,7 @@
 		}
 
 		function hideMenu() {
-			navbar.animate({'opacity': 1, 'top': 0}, {
+			navbar.animate({ 'opacity': 1, 'top': 0 }, {
 				duration: 150,
 				easing: 'easeInOutQuart'
 			});
@@ -173,14 +167,14 @@
 		 * Overlay dropdown menu
 		/* ---------------------------------------------- */
 
-		$('#nav > li.slidedown > a').on('click', function() {
+		$('#nav > li.slidedown > a').on('click', function () {
 			if ($(this).attr('class') != 'active') {
-				$('#nav li ul').slideUp({duration: 300, easing: 'easeInOutQuart'});
+				$('#nav li ul').slideUp({ duration: 300, easing: 'easeInOutQuart' });
 				$('#nav li a').removeClass('active');
-				$(this).next().slideToggle({duration: 300, easing: 'easeInOutQuart'}).addClass('open');
+				$(this).next().slideToggle({ duration: 300, easing: 'easeInOutQuart' }).addClass('open');
 				$(this).addClass('active');
 			} else {
-				$('#nav li ul').slideUp({duration: 300, easing: 'easeInOutQuart'}).removeClass('open');
+				$('#nav li ul').slideUp({ duration: 300, easing: 'easeInOutQuart' }).removeClass('open');
 				$(this).removeClass('active');
 			}
 			return false;
@@ -190,7 +184,7 @@
 		 * Portfolio
 		/* ---------------------------------------------- */
 
-		$('a', filters).on('click', function() {
+		$('a', filters).on('click', function () {
 			var selector = $(this).attr('data-filter');
 
 			$('.current', filters).removeClass('current');
@@ -203,56 +197,56 @@
 			return false;
 		});
 
-		$(window).on('resize', function() {
+		$(window).on('resize', function () {
 
-			var windowWidth    = Math.max($(window).width(), window.innerWidth),
-				itemWidht      = $('.grid-sizer').width(),
-				itemHeight     = Math.floor(itemWidht * 0.95),
+			var windowWidth = Math.max($(window).width(), window.innerWidth),
+				itemWidht = $('.grid-sizer').width(),
+				itemHeight = Math.floor(itemWidht * 0.95),
 				itemTallHeight = itemHeight * 2;
 
 			if (windowWidth > 500) {
-				$('.work-item', worksgrid).each(function() {
+				$('.work-item', worksgrid).each(function () {
 					if ($(this).hasClass('tall')) {
 						$(this).css({
-							height : itemTallHeight
+							height: itemTallHeight
 						});
 					} else if ($(this).hasClass('wide')) {
 						$(this).css({
-							height : itemHeight
+							height: itemHeight
 						});
 					} else if ($(this).hasClass('wide-tall')) {
 						$(this).css({
-							height : itemTallHeight
+							height: itemTallHeight
 						});
 					} else {
 						$(this).css({
-							height : itemHeight
+							height: itemHeight
 						});
 					}
 				});
 			} else {
-				$('.work-item', worksgrid).each(function() {
+				$('.work-item', worksgrid).each(function () {
 					if ($(this).hasClass('tall')) {
 						$(this).css({
-							height : itemTallHeight
+							height: itemTallHeight
 						});
 					} else if ($(this).hasClass('wide')) {
 						$(this).css({
-							height : itemHeight / 2
+							height: itemHeight / 2
 						});
 					} else if ($(this).hasClass('wide-tall')) {
 						$(this).css({
-							height : itemHeight
+							height: itemHeight
 						});
 					} else {
 						$(this).css({
-							height : itemHeight
+							height: itemHeight
 						});
 					}
 				});
 			}
 
-			worksgrid.imagesLoaded(function() {
+			worksgrid.imagesLoaded(function () {
 				worksgrid.isotope({
 					layoutMode: 'packery',
 					itemSelector: '.work-item',
@@ -269,7 +263,7 @@
 		 * Blog grid
 		/* ---------------------------------------------- */
 
-		$('#posts-masonry').imagesLoaded(function() {
+		$('#posts-masonry').imagesLoaded(function () {
 			$('#posts-masonry').isotope({
 				layoutMode: 'masonry',
 				transitionDuration: '0.3s'
@@ -280,7 +274,7 @@
 		 * Google Map
 		/* ---------------------------------------------- */
 
-		var mapLocation = new google.maps.LatLng(34.031428,-118.2071542,17);
+		var mapLocation = new google.maps.LatLng(34.031428, -118.2071542, 17);
 
 		var $mapis = $('#map');
 
@@ -288,16 +282,16 @@
 
 			var map;
 			map = new GMaps({
-				streetViewControl : true,
+				streetViewControl: true,
 				overviewMapControl: true,
 				mapTypeControl: true,
-				zoomControl : true,
-				panControl : true,
+				zoomControl: true,
+				panControl: true,
 				scrollwheel: false,
 				center: mapLocation,
 				el: '#map',
 				zoom: 16,
-				styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}]
+				styles: [{ "featureType": "all", "elementType": "labels.text.fill", "stylers": [{ "saturation": 36 }, { "color": "#000000" }, { "lightness": 40 }] }, { "featureType": "all", "elementType": "labels.text.stroke", "stylers": [{ "visibility": "on" }, { "color": "#000000" }, { "lightness": 16 }] }, { "featureType": "all", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "administrative", "elementType": "geometry.fill", "stylers": [{ "color": "#000000" }, { "lightness": 20 }] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [{ "color": "#000000" }, { "lightness": 17 }, { "weight": 1.2 }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 20 }] }, { "featureType": "poi", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 21 }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#000000" }, { "lightness": 17 }] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [{ "color": "#000000" }, { "lightness": 29 }, { "weight": 0.2 }] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 18 }] }, { "featureType": "road.local", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 16 }] }, { "featureType": "transit", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 19 }] }, { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#000000" }, { "lightness": 17 }] }]
 			});
 
 			var image = new google.maps.MarkerImage('assets/images/map-icon.png',
@@ -324,19 +318,19 @@
 		var pageNumber = 0,
 			workNumberToload = 5;
 
-		var doneText    = 'Done',
-			loadText    = 'More works',
+		var doneText = 'Done',
+			loadText = 'More works',
 			loadingText = 'Loading...',
-			errorText   = 'Error! Check the console for more information.';
+			errorText = 'Error! Check the console for more information.';
 
 		/* ---------------------------------------------- /*
 		 * Ajax portfolio
 		/* ---------------------------------------------- */
 
-		$('#show-more').on('click', function() {
+		$('#show-more').on('click', function () {
 			$(this).text(loadingText);
 
-			setTimeout(function() {
+			setTimeout(function () {
 				ajaxLoad(workNumberToload, pageNumber);
 			}, 300);
 
@@ -354,7 +348,7 @@
 				data: dataString,
 				dataType: 'html',
 				url: 'assets/php/ajax-load-more/ajax-load-more.php',
-				success: function(data) {
+				success: function (data) {
 					var $data = $(data);
 					var start_index = (pageNumber - 1) * workNumberToload;
 					var end_index = + start_index + workNumberToload;
@@ -364,7 +358,7 @@
 
 						worksgrid.append(work).isotope('appended', work).resize();
 
-						setTimeout(function() {
+						setTimeout(function () {
 							$loadButton.text(loadText);
 						}, 300);
 
@@ -373,7 +367,7 @@
 							gallery: {
 								enabled: true,
 								navigateByImgClick: true,
-								preload: [0,1]
+								preload: [0, 1]
 							},
 							image: {
 								titleSrc: 'title',
@@ -382,7 +376,7 @@
 						});
 
 					} else {
-						setTimeout(function() {
+						setTimeout(function () {
 							$loadButton.text(doneText);
 						}, 300);
 
@@ -397,7 +391,7 @@
 							gallery: {
 								enabled: true,
 								navigateByImgClick: true,
-								preload: [0,1]
+								preload: [0, 1]
 							},
 							image: {
 								titleSrc: 'title',
@@ -410,7 +404,7 @@
 				error: function (jqXHR, textStatus, errorThrown) {
 					console.log(jqXHR + " :: " + textStatus + " :: " + errorThrown);
 
-					setTimeout(function() {
+					setTimeout(function () {
 						$loadButton.removeClass('ss-loading');
 						$loadButton.text(errorText);
 					}, 300);
@@ -434,26 +428,26 @@
 		/* ---------------------------------------------- */
 
 		$('.slider-testimonials').owlCarousel({
-			stopOnHover:     !0,
-			singleItem:      !0,
-			autoHeight:      !0,
-			slideSpeed:      400,
+			stopOnHover: !0,
+			singleItem: !0,
+			autoHeight: !0,
+			slideSpeed: 400,
 			paginationSpeed: 1000,
-			goToFirstSpeed:  2000,
-			autoPlay:        3000,
+			goToFirstSpeed: 2000,
+			autoPlay: 3000,
 			navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
 		});
 
 		$('.slider-images').owlCarousel({
-			stopOnHover:     !0,
-			singleItem:      !0,
-			autoHeight:      !0,
-			navigation:      !0,
-			slideSpeed:      400,
+			stopOnHover: !0,
+			singleItem: !0,
+			autoHeight: !0,
+			navigation: !0,
+			slideSpeed: 400,
 			paginationSpeed: 1000,
-			goToFirstSpeed:  2000,
-			autoPlay:        3000,
-			transitionStyle : "fade",
+			goToFirstSpeed: 2000,
+			autoPlay: 3000,
+			transitionStyle: "fade",
 			navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
 		});
 
@@ -470,7 +464,7 @@
 			gallery: {
 				enabled: true,
 				navigateByImgClick: true,
-				preload: [0,1]
+				preload: [0, 1]
 			},
 			image: {
 				titleSrc: 'title',
@@ -482,19 +476,19 @@
 		 * Progress bars, counters animations
 		/* ---------------------------------------------- */
 
-		$('.progress-bar').each(function(i) {
-			$(this).appear(function() {
+		$('.progress-bar').each(function (i) {
+			$(this).appear(function () {
 				var percent = $(this).attr('aria-valuenow');
-				$(this).animate({'width' : percent + '%'});
-				$(this).find('span').animate({'opacity' : 1}, 900);
-				$(this).find('span').countTo({from: 0, to: percent, speed: 900, refreshInterval: 30});
+				$(this).animate({ 'width': percent + '%' });
+				$(this).find('span').animate({ 'opacity': 1 }, 900);
+				$(this).find('span').countTo({ from: 0, to: percent, speed: 900, refreshInterval: 30 });
 			});
 		});
 
-		$('.counter-item').each(function(i) {
-			$(this).appear(function() {
+		$('.counter-item').each(function (i) {
+			$(this).appear(function () {
 				var number = $(this).find('.counter-number').data('number');
-				$(this).find('.counter-number span').countTo({from: 0, to: number, speed: 1200, refreshInterval: 30});
+				$(this).find('.counter-number span').countTo({ from: 0, to: number, speed: 1200, refreshInterval: 30 });
 			});
 		});
 
@@ -518,7 +512,7 @@
 		 * Scroll Animation
 		/* ---------------------------------------------- */
 
-		$('.section-scroll').bind('click', function(e) {
+		$('.section-scroll').bind('click', function (e) {
 			var anchor = $(this);
 
 			$('html, body').stop().animate({
@@ -532,7 +526,7 @@
 		 * Scroll top
 		/* ---------------------------------------------- */
 
-		$(window).scroll(function() {
+		$(window).scroll(function () {
 			if ($(this).scrollTop() > 100) {
 				$('.scroll-up').fadeIn();
 			} else {
@@ -540,7 +534,7 @@
 			}
 		});
 
-		$('a[href="#totop"]').click(function() {
+		$('a[href="#totop"]').click(function () {
 			$('html, body').animate({ scrollTop: 0 }, 'slow');
 			return false;
 		});
