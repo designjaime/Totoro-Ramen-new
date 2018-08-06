@@ -178,12 +178,12 @@ Buttons
 /* Button colors */
 
 .btn.btn-g {
-  background: #eee;
-  color: #111;
+  background: #b72228;
+  color: #ffffff;
 }
 
 .btn.btn-g:hover,.btn.btn-g:focus {
-  background: rgba(238, 238, 238, 0.7);
+  background: #ffffff;
   color: #111;
 }
 
@@ -223,16 +223,23 @@ Social links
 ------------------------------------------------------------------- */
 
 .social-text-links,.social-icon-links {
+  
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .social-text-links > li {
+  
   display: inline-block;
   margin: 0 10px 20px;
 }
-
+.social-text-links > li > a {
+  color:#b72228;
+}
+.social-text-links > li > a:hover {
+  color:#ffffff;
+}
 .social-icon-links > li {
   display: inline-block;
   margin: 0 5px 10px 0;
@@ -288,7 +295,6 @@ Content box
   left: 0;
   top: 0;
   text-align: center;
-  line-height: 38px;
   font-size: 28px;
   color: #FFFFFF;
 }
@@ -333,7 +339,7 @@ Overlays
 ------------------------------------------------------------------- */
 
 .bg-light {
-  background-color: #f7f7f7;
+  background-color: #000000;
   height: 100%;
   width: 100%;
 }
@@ -695,7 +701,7 @@ Modules
 }
 
 .module {
-  padding: 140px 0;
+  padding: 80px 0;
   position: relative;
   background-repeat: no-repeat;
   background-position: center center;
@@ -742,16 +748,22 @@ Modules
 }
 
 .copyright {
-  color: #000000;
+  color: #ffffff;
   padding: 0 5px;
 }
-
+a:hover, a:focus{
+  color:#b72228;
+}
 /* ------------------------------------------------------------------
 Works grid
 ------------------------------------------------------------------- */
 
 .show-more {
-  font-size: 13px !important;
+  font-size: 16px !important;
+  font-family: 'Neucha';
+  border-radius: 10px!important;
+
+
 }
 
 /* ------------------------------------------------------------------
