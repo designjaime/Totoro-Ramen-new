@@ -269,7 +269,10 @@
 				transitionDuration: '0.3s'
 			});
 		});
-
+		$("[data-toggle='lightbox']").click(function (e) {
+			e.preventDefault();
+			$(this).ekkoLightbox();
+		});
 		/* ---------------------------------------------- /*
 		 * Google Map
 		/* ---------------------------------------------- */

@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Neucha");
 
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400");
 
 /* General Styles */
 
 body {
   background: url('https://www.freepik.com/free-photo/wooden-texture_1000699.htm');
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-weight: 100;
   line-height: 3rem;
   color: #ffffff;
   overflow-x: hidden;
