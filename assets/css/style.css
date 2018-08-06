@@ -804,6 +804,7 @@ Blog
 
 .post-title a {
   color: #111;
+  
 }
 
 .post-title a:hover {
@@ -1014,7 +1015,7 @@ Reset bootstrap navigation styles for small screens
 /*new css*/
 
 .grid-container {
-  max-width: 100rem;
+  max-width: 120rem;
   margin: 0 auto;
   margin-top: 40px;
   padding-left: 40px;
@@ -1027,14 +1028,27 @@ Reset bootstrap navigation styles for small screens
 
 .post {
   /* background-color: transparent; */
-  background: rgba(7, 6, 6, 0.4);
+  background: rgba(7, 6, 6, 0.2);
 }
 
 .card-body {
-  background: rgba(7, 6, 6, 0.5);
+  background: rgba(7, 6, 6, 0.3);
   /* background-color: rgb(7, 6, 6); */
   /* opacity: 0.5; */
   /* border-color:#ffffff; */
+}
+
+.card-img-top{
+  width:90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-text{
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 2rem;
 }
 
 /* -------------------------------------------------------------------
