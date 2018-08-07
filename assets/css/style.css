@@ -434,6 +434,7 @@ Navigation
 
 .navbar-custom a {
   color: #fff;
+ 
 }
 
 .navbar-custom .nav > li > a:focus,.navbar-custom .nav > li > a:hover {
@@ -1020,7 +1021,6 @@ Reset bootstrap navigation styles for small screens
 
 .navbar-custom .navbar-nav > li > a {
   padding-top: 15px;
-  padding-bottom: 15px;
   font-family: 'Neucha';
 }
 
