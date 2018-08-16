@@ -9,7 +9,7 @@ body {
   font-family: 'Roboto Slab', serif;
   font-weight: 100;
   line-height: 3rem;
-  color: #ffffff;
+  color: #e4e4e4;
   overflow-x: hidden;
 }
 
@@ -128,7 +128,7 @@ h6,.h6 {
 }
 
 p,ul {
-  margin: 0 0 20px;
+  margin: 0 0 10px;
 }
 
 .font-alt {
@@ -136,11 +136,7 @@ p,ul {
   letter-spacing: 1px;
 }
 
-.font-serif {
-  font-family: "Libre Baskerville", "Times New Roman", sans-serif;
-  letter-spacing: 1px;
-  font-style: italic;
-}
+
 
 /* ------------------------------------------------------------------
 Buttons
@@ -212,6 +208,16 @@ Buttons
   letter-spacing: 1px;
   font-size: 10px;
   padding: 6px 25px;
+}
+
+#read_more {
+  background: #b72228;
+  color:#ffffff;
+  border : none;
+  border-radius: 5px;
+  font-family: 'Neucha';
+  font-size: 14px;
+  
 }
 
 /* ------------------------------------------------------------------
@@ -365,7 +371,7 @@ Overlays
 }
 
 .bg-dark-60:before {
-  background: url(../images/hero.jpg) no-repeat center center fixed; 
+  background: url(../images/hero-small.jpg) no-repeat top center fixed; 
   content: "";
   left: 0;
   top: 0;
@@ -829,43 +835,8 @@ Blog
   margin: 0 0 20px;
 }
 
-/* Single post */
 
-/* ------------------------------------------------------------------
-Tags
-------------------------------------------------------------------- */
 
-/* ------------------------------------------------------------------
-Post author
-------------------------------------------------------------------- */
-
-.post-author .author-content {
-  margin-left: 100px;
-}
-
-.post-author .author-name {
-  margin-top: 0;
-}
-
-/* ------------------------------------------------------------------
-Comments and Comment form
-------------------------------------------------------------------- */
-
-.post-author {
-  margin: 80px 0 0;
-}
-
-.post-author-title {
-  margin: 0 0 15px;
-}
-
-/* ------------------------------------------------------------------
-Widgets
-------------------------------------------------------------------- */
-
-/* Search */
-
-/* Recent posts */
 
 /* -------------------------------------------------------------------
 Google map
@@ -1058,13 +1029,94 @@ Reset bootstrap navigation styles for small screens
   padding-right: 20px;
   line-height: 2rem;
 }
-
+#logo2 {
+  display: none;
+ }
+ 
 /* -------------------------------------------------------------------
 Responsive Media Querries
 ------------------------------------------------------------------- */
 
-@media (min-width: 768px) {
-  /* Comments */
+/** Small devices (landscape phones, 320px and up) */
+@media (min-width: 320px) {
+  #logo2 {
+    display: block;
+   }
+   #logo {
+    display: none;
+   }
+  h4, .h4{
+    font-size: 18px;
+  }
+  body{
+    font-size: 12px;
+  }
+  .extra_content {
+    display: none;
+  }
+  #read_more {
+    display: block;
+  }
+
+
+.read_more  {
+  display: none;
+}
+
+.show {
+   display: block!important;
+}
+
+}
+  
+  
+
+
+
+
+/** Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {  
+  #logo2 {
+    display: none;
+   }
+   #logo {
+    display: block;
+   }
+   h4, .h4{
+    font-size: 21px;
+  }
+  .bg-dark-60:before {
+    background: url(../images/hero-medium.jpg) no-repeat top center fixed; 
+    content: "";
+    left: 0;
+    top: 0;
+  }
+}
+
+/** Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .bg-dark-60:before {
+    background: url(../images/hero.jpg) no-repeat center center fixed; 
+  }
+  .extra_content {
+    display: block;
+  }
+  .extra_content2 {
+    display: none;
+  }
+
+  #read_more {
+    display: block;
+  }
+
+
+.read_more  {
+  display: none;
+}
+
+.show {
+   display: block!important;
+}
 }
 
 @media (max-width: 992px) {
@@ -1164,7 +1216,7 @@ Responsive Media Querries
 
   .mh-line-size-1 {
     letter-spacing: 12px;
-    font-size: 26px;
+    font-size: 21px;
   }
 
   .mh-line-size-2 {

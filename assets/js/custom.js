@@ -1,5 +1,6 @@
 (function ($) {
 
+
 	"use strict";
 
 	/* ---------------------------------------------- /*
@@ -41,6 +42,9 @@
 			}
 		}).scroll();
 
+
+
+
 		/* ---------------------------------------------- /*
 		 * Mobile detect
 		/* ---------------------------------------------- */
@@ -78,7 +82,11 @@
 
 		function buildModuleHero() {
 			if (moduleHero.length > 0) {
-				if (moduleHero.hasClass('module-full-height')) {
+				if ($(window).width() < $(window).height()) {
+					// portrait mode
+					moduleHero.height($(window).height() * 0.50);
+				}
+				else if (moduleHero.hasClass('module-full-height')) {
 					moduleHero.height($(window).height());
 				} else {
 					moduleHero.height($(window).height() * 0.85);
