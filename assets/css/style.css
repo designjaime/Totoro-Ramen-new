@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Neucha");
+@import url("https://fonts.googleapis.com/css?family=Dosis:500");
 
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100");
 
@@ -30,13 +30,13 @@ a:hover, a:focus{
           transform: translate(-50%, -50%);
   height: 160px;
   overflow: hidden;
-  font-family: 'Neucha';
+  font-family: 'Dosis', sans-serif;;
   font-size: 35px;
   line-height: 40px;
   color: #ecf0f1;
 }
 .content__container {
-  font-weight: 600;
+  font-weight: 700;
   overflow: hidden;
   height: 40px;
   padding: 0 40px;
@@ -190,7 +190,9 @@ a,.btn,.navbar a {
   -o-transition: all 0.4s ease-in-out 0s;
   transition: all 0.4s ease-in-out 0s;
 }
-
+#storepic{
+  max-width: 500px;
+}
 /* ------------------------------------------------------------------
 Reset box-shadow
 ------------------------------------------------------------------- */
@@ -203,9 +205,6 @@ Reset box-shadow
   box-shadow: none;
 }
 
-/* ------------------------------------------------------------------
-Reset border-radius
-------------------------------------------------------------------- */
 
 /* ------------------------------------------------------------------
 Typography
@@ -229,7 +228,7 @@ Typography
 
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
   line-height: 1.4;
-  font-family: 'Neucha';
+  font-family: 'Dosis', sans-serif;;
   font-weight: 400;
   color: #ffffff;
 }
@@ -263,7 +262,7 @@ p,ul {
 }
 
 .font-alt {
-  font-family: 'Neucha';
+  font-family: 'Dosis', sans-serif;;
   letter-spacing: 1px;
 }
 
@@ -346,7 +345,7 @@ Buttons
   color:#ffffff;
   border : none;
   border-radius: 5px;
-  font-family: 'Neucha';
+  font-family: 'Dosis', sans-serif;;
   font-size: 14px;
   
 }
@@ -721,7 +720,7 @@ Navigation
 }
 
 #nav > li > a {
-  font-family: 'Neucha';
+  font-family: 'Dosis', sans-serif;;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 24px;
@@ -893,7 +892,7 @@ Works grid
 
 .show-more {
   font-size: 16px !important;
-  font-family: 'Neucha';
+  font-family: 'Dosis', sans-serif;;
   border-radius: 10px!important;
 
 
@@ -1118,7 +1117,7 @@ Reset bootstrap navigation styles for small screens
 
 .navbar-custom .navbar-nav > li > a {
   padding-top: 15px;
-  font-family: 'Neucha';
+  font-family: 'Dosis', sans-serif;;
 }
 
 /*new css*/
@@ -1141,7 +1140,7 @@ Reset bootstrap navigation styles for small screens
 }
 
 .posts,.with-text {
-  height: 400px;
+  height: 350px;
 }
 
 .card-body {
@@ -1165,7 +1164,9 @@ Reset bootstrap navigation styles for small screens
 }
 
 .card-title {
-  color:#b8a67f;
+  color:#e8cd91;
+  text-transform: uppercase;
+
 }
 
 
@@ -1196,6 +1197,7 @@ Responsive Media Querries
   }
   #read_more {
     display: block;
+    font-size: 16px;
   }
 
 
