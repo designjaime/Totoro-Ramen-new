@@ -9,7 +9,7 @@ body {
   font-family: 'Roboto Slab', serif;
   font-weight: 100;
   line-height: 3rem;
-  color: #e4e4e4;
+  color: #f7f5f5;
   overflow-x: hidden;
 }
 
@@ -1191,7 +1191,7 @@ Responsive Media Querries
     font-size: 18px;
   }
   body{
-    font-size: 12px;
+    font-size: 14px;
   }
   .extra_content {
     display: none;
