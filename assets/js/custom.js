@@ -1,5 +1,6 @@
 (function ($) {
 
+
 	"use strict";
 
 	/* ---------------------------------------------- /*
@@ -41,6 +42,9 @@
 			}
 		}).scroll();
 
+
+
+
 		/* ---------------------------------------------- /*
 		 * Mobile detect
 		/* ---------------------------------------------- */
@@ -73,22 +77,16 @@
 		});
 
 		/* ---------------------------------------------- /*
-		 * Parallax
-		/* ---------------------------------------------- */
-
-		if (mobileTest === true) {
-			$('.module-parallax').css({ 'background-attachment': 'scroll' });
-		} else {
-			$('#hero.module-parallax').parallax('50%', 0.2);
-		}
-
-		/* ---------------------------------------------- /*
 		 * Full height module
 		/* ---------------------------------------------- */
 
 		function buildModuleHero() {
 			if (moduleHero.length > 0) {
-				if (moduleHero.hasClass('module-full-height')) {
+				if ($(window).width() < $(window).height()) {
+					// portrait mode
+					moduleHero.height($(window).height() * 0.50);
+				}
+				else if (moduleHero.hasClass('module-full-height')) {
 					moduleHero.height($(window).height());
 				} else {
 					moduleHero.height($(window).height() * 0.85);
@@ -135,6 +133,11 @@
 			hideMenu();
 			$('body').removeClass('aux-navigation-active');
 			return false;
+		});
+
+		$('.overlay-menu-nav a').on('click', function () {
+			hideMenu();
+			$('body').removeClass('aux-navigation-active');
 		});
 
 		$(window).keydown(function (e) {
@@ -184,95 +187,9 @@
 		 * Portfolio
 		/* ---------------------------------------------- */
 
-		$('a', filters).on('click', function () {
-			var selector = $(this).attr('data-filter');
-
-			$('.current', filters).removeClass('current');
-			$(this).addClass('current');
-
-			worksgrid.isotope({
-				filter: selector
-			});
-
-			return false;
-		});
-
 		$(window).on('resize', function () {
-
-			var windowWidth = Math.max($(window).width(), window.innerWidth),
-				itemWidht = $('.grid-sizer').width(),
-				itemHeight = Math.floor(itemWidht * 0.95),
-				itemTallHeight = itemHeight * 2;
-
-			if (windowWidth > 500) {
-				$('.work-item', worksgrid).each(function () {
-					if ($(this).hasClass('tall')) {
-						$(this).css({
-							height: itemTallHeight
-						});
-					} else if ($(this).hasClass('wide')) {
-						$(this).css({
-							height: itemHeight
-						});
-					} else if ($(this).hasClass('wide-tall')) {
-						$(this).css({
-							height: itemTallHeight
-						});
-					} else {
-						$(this).css({
-							height: itemHeight
-						});
-					}
-				});
-			} else {
-				$('.work-item', worksgrid).each(function () {
-					if ($(this).hasClass('tall')) {
-						$(this).css({
-							height: itemTallHeight
-						});
-					} else if ($(this).hasClass('wide')) {
-						$(this).css({
-							height: itemHeight / 2
-						});
-					} else if ($(this).hasClass('wide-tall')) {
-						$(this).css({
-							height: itemHeight
-						});
-					} else {
-						$(this).css({
-							height: itemHeight
-						});
-					}
-				});
-			}
-
-			worksgrid.imagesLoaded(function () {
-				worksgrid.isotope({
-					layoutMode: 'packery',
-					itemSelector: '.work-item',
-					transitionDuration: '0.3s',
-					packery: {
-						columnWidth: '.grid-sizer',
-					},
-				});
-			});
-
 		}).resize();
 
-		/* ---------------------------------------------- /*
-		 * Blog grid
-		/* ---------------------------------------------- */
-
-		$('#posts-masonry').imagesLoaded(function () {
-			$('#posts-masonry').isotope({
-				layoutMode: 'masonry',
-				transitionDuration: '0.3s'
-			});
-		});
-		$("[data-toggle='lightbox']").click(function (e) {
-			e.preventDefault();
-			$(this).ekkoLightbox();
-		});
 		/* ---------------------------------------------- /*
 		 * Google Map
 		/* ---------------------------------------------- */
@@ -313,203 +230,6 @@
 			});
 
 		}
-
-		/* ---------------------------------------------- /*
-		 * Ajax options
-		/* ---------------------------------------------- */
-
-		var pageNumber = 0,
-			workNumberToload = 5;
-
-		var doneText = 'Done',
-			loadText = 'More works',
-			loadingText = 'Loading...',
-			errorText = 'Error! Check the console for more information.';
-
-		/* ---------------------------------------------- /*
-		 * Ajax portfolio
-		/* ---------------------------------------------- */
-
-		$('#show-more').on('click', function () {
-			$(this).text(loadingText);
-
-			setTimeout(function () {
-				ajaxLoad(workNumberToload, pageNumber);
-			}, 300);
-
-			pageNumber++;
-
-			return false;
-		});
-
-		function ajaxLoad(workNumberToload, pageNumber) {
-			var $loadButton = $('#show-more');
-			var dataString = 'numPosts=' + workNumberToload + '&pageNumber=' + pageNumber;
-
-			$.ajax({
-				type: 'GET',
-				data: dataString,
-				dataType: 'html',
-				url: 'assets/php/ajax-load-more/ajax-load-more.php',
-				success: function (data) {
-					var $data = $(data);
-					var start_index = (pageNumber - 1) * workNumberToload;
-					var end_index = + start_index + workNumberToload;
-
-					if ($data.find('.work-item').slice(start_index).length) {
-						var work = $data.find('.work-item').slice(start_index, end_index);
-
-						worksgrid.append(work).isotope('appended', work).resize();
-
-						setTimeout(function () {
-							$loadButton.text(loadText);
-						}, 300);
-
-						$('a.gallery').magnificPopup({
-							type: 'image',
-							gallery: {
-								enabled: true,
-								navigateByImgClick: true,
-								preload: [0, 1]
-							},
-							image: {
-								titleSrc: 'title',
-								tError: 'The image could not be loaded.',
-							}
-						});
-
-					} else {
-						setTimeout(function () {
-							$loadButton.text(doneText);
-						}, 300);
-
-						setTimeout(function () {
-							$('#show-more').animate({
-								opacity: 0,
-							}).css('display', 'none');
-						}, 1500);
-
-						$('a.gallery').magnificPopup({
-							type: 'image',
-							gallery: {
-								enabled: true,
-								navigateByImgClick: true,
-								preload: [0, 1]
-							},
-							image: {
-								titleSrc: 'title',
-								tError: 'The image could not be loaded.',
-							}
-						});
-					}
-				},
-
-				error: function (jqXHR, textStatus, errorThrown) {
-					console.log(jqXHR + " :: " + textStatus + " :: " + errorThrown);
-
-					setTimeout(function () {
-						$loadButton.removeClass('ss-loading');
-						$loadButton.text(errorText);
-					}, 300);
-
-				}
-			});
-		}
-
-		/* ---------------------------------------------- /*
-		 * Rotate
-		/* ---------------------------------------------- */
-
-		$(".rotate").textrotator({
-			animation: "dissolve",
-			separator: "|",
-			speed: 3000
-		});
-
-		/* ---------------------------------------------- /*
-		 * Owl sliders
-		/* ---------------------------------------------- */
-
-		$('.slider-testimonials').owlCarousel({
-			stopOnHover: !0,
-			singleItem: !0,
-			autoHeight: !0,
-			slideSpeed: 400,
-			paginationSpeed: 1000,
-			goToFirstSpeed: 2000,
-			autoPlay: 3000,
-			navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-		});
-
-		$('.slider-images').owlCarousel({
-			stopOnHover: !0,
-			singleItem: !0,
-			autoHeight: !0,
-			navigation: !0,
-			slideSpeed: 400,
-			paginationSpeed: 1000,
-			goToFirstSpeed: 2000,
-			autoPlay: 3000,
-			transitionStyle: "fade",
-			navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-		});
-
-		/* ---------------------------------------------- /*
-		 * Video popup, Gallery
-		/* ---------------------------------------------- */
-
-		$('.video-pop-up').magnificPopup({
-			type: 'iframe',
-		});
-
-		$('a.gallery').magnificPopup({
-			type: 'image',
-			gallery: {
-				enabled: true,
-				navigateByImgClick: true,
-				preload: [0, 1]
-			},
-			image: {
-				titleSrc: 'title',
-				tError: 'The image could not be loaded.',
-			}
-		});
-
-		/* ---------------------------------------------- /*
-		 * Progress bars, counters animations
-		/* ---------------------------------------------- */
-
-		$('.progress-bar').each(function (i) {
-			$(this).appear(function () {
-				var percent = $(this).attr('aria-valuenow');
-				$(this).animate({ 'width': percent + '%' });
-				$(this).find('span').animate({ 'opacity': 1 }, 900);
-				$(this).find('span').countTo({ from: 0, to: percent, speed: 900, refreshInterval: 30 });
-			});
-		});
-
-		$('.counter-item').each(function (i) {
-			$(this).appear(function () {
-				var number = $(this).find('.counter-number').data('number');
-				$(this).find('.counter-number span').countTo({ from: 0, to: number, speed: 1200, refreshInterval: 30 });
-			});
-		});
-
-		/* ---------------------------------------------- /*
-		 * WOW Animation
-		/* ---------------------------------------------- */
-
-		var wow = new WOW({
-			mobile: false
-		});
-
-		wow.init();
-
-		/* ---------------------------------------------- /*
-		 * A jQuery plugin for fluid width video embeds
-		/* ---------------------------------------------- */
-
-		$('body').fitVids();
 
 		/* ---------------------------------------------- /*
 		 * Scroll Animation
